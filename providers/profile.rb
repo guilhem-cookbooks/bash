@@ -5,7 +5,8 @@ use_inline_resources
 action :add do
   file ::File.join(profile_d, new_resource.filename) do
     content new_resource.content
-    ownership
+    owner new_resource.user
+    group Etc.getpwnam(new_resource.user).gid
     mode 0644
   end
 end
@@ -16,7 +17,8 @@ end
 
 def init
   directory profile_d do
-    ownership
+    owner new_resource.user
+    group Etc.getpwnam(new_resource.user).gid
     mode 0755
   end
 
@@ -30,7 +32,8 @@ def init
 
   cookbook_file bash_profile do
     source "bash_profile"
-    ownership
+    owner new_resource.user
+    group Etc.getpwnam(new_resource.user).gid 	
     mode 0644 
   end
 end
@@ -45,9 +48,4 @@ end
 
 def bash_profile
   ::File.join(::Dir.home(new_resource.user), ".bash_profile")
-end
-
-def ownership
-  owner new_resource.user
-  group Etc.getpwnam(new_resource.user).gid
 end
