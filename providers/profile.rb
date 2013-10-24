@@ -29,6 +29,7 @@ def init
   end
 
   cookbook_file bash_profile do
+    cookbook "bash"
     source "bash_profile"
     owner new_resource.user
     group Etc.getpwnam(new_resource.user).gid 	
