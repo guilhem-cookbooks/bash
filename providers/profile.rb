@@ -3,16 +3,14 @@ require 'etc'
 use_inline_resources
 
 action :add do
+  init
+
   file ::File.join(profile_d, new_resource.filename) do
     content new_resource.content
     owner new_resource.user
     group Etc.getpwnam(new_resource.user).gid
     mode 0644
   end
-end
-
-def load_current_resource
-  init
 end
 
 def init
