@@ -20,12 +20,13 @@ def init
     mode 0755
   end
 
-  ruby_block "move old .bash_profile into #{profile_d}" do
-    block do
-      require 'fileutils'
-      FileUtils.mv bash_profile, ::File.join(profile_d, "init")
+  file ::File.join(profile_d, "init") do
+    if ::File.exists?(::File.join(bash_profile))
+      content ::IO.read(::File.join(bash_profile))
+    else
+      action :touch
     end
-    not_if {::File.exists?(::File.join(profile_d, "init"))}
+    not_if { ::File.exists?(::File.join(profile_d, "init")) }
   end
 
   cookbook_file bash_profile do
