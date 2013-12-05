@@ -26,6 +26,7 @@ def init
     else
       action :touch
     end
+    mode 0444
     not_if { ::File.exists?(::File.join(profile_d, "init")) }
   end
 
