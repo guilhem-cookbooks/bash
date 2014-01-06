@@ -6,7 +6,10 @@ action :add do
   init
 
   file ::File.join(profile_d, new_resource.filename) do
-    content new_resource.content
+    content <<-EOH
+# Managed by Chef.  Local changes will be overwritten.
+#{new_resource.content}
+EOH
     owner new_resource.user
     group Etc.getpwnam(new_resource.user).gid
     mode 0644
