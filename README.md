@@ -34,6 +34,13 @@ If an existing bash_profile file exists in user home folder, it will be saved in
       user 'jdoe'
       content "PATH=/home/jdoe/my_bin:$PATH"
     end
+    
+## Testing
+
+Includes basic [chefspec](sethvargo/chefspec) support and matchers.
+
+1. `bundle install`
+2. `rspec`
 
 ## Author
 
