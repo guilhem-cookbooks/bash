@@ -18,6 +18,7 @@ If an existing bash_profile file exists in user home folder, it will be saved in
 
 ### Action
 * `add:` (default) - add a specified file to bash\_profile.d folder and merge all files from this folder to given user bash\_profile file.
+* `remove:` - remove a specified file from bash\_profile.d folder.
 
 ## Attributes
 
