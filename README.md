@@ -1,4 +1,7 @@
 # bash cookbook
+
+[![Build Status](https://travis-ci.org/optiflows-cookbooks/bash.png)](https://travis-ci.org/optiflows-cookbooks/bash)
+
 This cookbook provides a simple `bash_profile` LWRP.
 
 It create multiple files in bash\_profile.d folder and merge them into bash\_profile file without loosing any local existing version.
