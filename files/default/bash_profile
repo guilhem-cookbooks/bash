@@ -1,3 +1,6 @@
+# Managed by Chef.  Local changes will be overwritten.
+# To manually add resources to the bash_profile, create a file in the ~/.bash_profile.d folder and add your changes there.
+
 for file in ~/.bash_profile.d/* ; do
   source ${file}
 done
