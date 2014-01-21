@@ -56,6 +56,14 @@ describe 'test::profile' do
       it 'create .bash_profile.d/test1 file' do
         expect(chef_run).to create_file('/home/test_user/.bash_profile.d/test1')
       end
+
+      it 'append chef warning to .bash_profile.d/test1 file' do
+        expect(chef_run).to render_file('/home/test_user/.bash_profile.d/test1')
+          .with_content <<-EOH
+# Managed by Chef.  Local changes will be overwritten.
+test1
+EOH
+      end
     end
   end
 
