@@ -1,4 +1,7 @@
 # bash cookbook
+
+[![Build Status](https://travis-ci.org/optiflows-cookbooks/bash.png)](https://travis-ci.org/optiflows-cookbooks/bash)
+
 This cookbook provides a simple `bash_profile` LWRP.
 
 It create multiple files in bash\_profile.d folder and merge them into bash\_profile file without loosing any local existing version.
@@ -18,6 +21,7 @@ If an existing bash_profile file exists in user home folder, it will be saved in
 
 ### Action
 * `add:` (default) - add a specified file to bash\_profile.d folder and merge all files from this folder to given user bash\_profile file.
+* `remove:` - remove a specified file from bash\_profile.d folder.
 
 ## Attributes
 
@@ -33,6 +37,13 @@ If an existing bash_profile file exists in user home folder, it will be saved in
       user 'jdoe'
       content "PATH=/home/jdoe/my_bin:$PATH"
     end
+    
+## Testing
+
+Includes basic [chefspec](sethvargo/chefspec) support and matchers.
+
+1. `bundle install`
+2. `rspec`
 
 ## Author
 

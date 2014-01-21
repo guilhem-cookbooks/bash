@@ -16,6 +16,12 @@ EOH
   end
 end
 
+action :remove do
+  file ::File.join(profile_d, new_resource.filename) do
+    action :delete
+  end
+end
+
 def init
   directory profile_d do
     owner new_resource.user
