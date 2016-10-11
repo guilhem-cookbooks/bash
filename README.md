@@ -6,7 +6,7 @@ This cookbook provides a simple `bash_profile` LWRP.
 
 It create multiple files in bash\_profile.d folder and merge them into bash\_profile file without loosing any local existing version.
 
-Obviously, it works only on Linux platform.
+Currently, it is only supported on Linux platforms.
 
 ## Usage
 Just add `bash` to your cookbook dependency list.
